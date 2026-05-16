@@ -94,6 +94,24 @@ def filter_text(text, min_len=5):
     else:
         return "unknown"
 
+# Image helpers
+def normalize_fort_name(fort_name):
+    fort_name = str(fort_name).lower().strip()
+    fort_name = re.sub(r'[^a-z0-9\s]', '', fort_name)
+    fort_name = fort_name.replace(" ", "_")
+    return fort_name
+
+def get_fort_image(fort_name):
+    normalized_name = normalize_fort_name(fort_name)
+    for ext in [".jpg", ".jpeg", ".png", ".webp"]:
+        image_path = os.path.join(FORT_IMAGE_FOLDER, normalized_name + ext)
+        if os.path.exists(image_path):
+            return os.path.abspath(image_path)
+    default_image = os.path.join(FORT_IMAGE_FOLDER, "default.jpg")
+    if os.path.exists(default_image):
+        return os.path.abspath(default_image)
+    return None
+
 
 
 
