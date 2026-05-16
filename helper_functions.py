@@ -112,7 +112,21 @@ def get_fort_image(fort_name):
         return os.path.abspath(default_image)
     return None
 
+# Display helpers
+def format_value(value, default="Not Available"):
+    """Helper to display value or default text."""
+    if pd.isna(value) or value == 'Unknown' or value == '':
+        return default
+    return str(value)
 
+def get_fort_description(fort_row: pd.Series) -> str:
+    """Create a short description for fort card."""
+    description = f"📍 District: {fort_row['district']}\n"
+    description += f"⛰️ Type: {fort_row['type']}\n"
+    description += f"📏 Elevation: {fort_row['elevation_m']}m\n"
+    description += f"🥾 Trek: {fort_row['trek_difficulty']}\n"
+    description += f"🌤️ Best Season: {fort_row['best_season']}"
+    return description
 
 
 
