@@ -78,6 +78,23 @@ def extract_text(text, year, bce_year):
     leftovers = leftovers.replace(";", "").replace(",", "").strip()
     return leftovers if leftovers else None
 
+# Filter Text
+def filter_text(text, min_len=5):
+    if pd.isna(text):
+        return "unknown"
+    
+    # Split text into words
+    words = re.findall(r'\b\w+\b', text.lower())
+    
+    # Keep only words with length >= min_len
+    filtered = [w for w in words if len(w) >= min_len]
+    
+    if filtered:
+        return " ".join(filtered)
+    else:
+        return "unknown"
+
+
 
 
 
