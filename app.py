@@ -47,4 +47,50 @@ with gr.Blocks(title="Fort Recommender") as app:
             )
             filter_btn = gr.Button("🔍 Filters", scale=1)
 
-        
+        # Filter panel
+        with gr.Column(visible=False) as filter_panel:
+            gr.Markdown("### Filter Options")
+            type_checkbox       = gr.CheckboxGroup(choices=fort_types,   label="Fort Type")
+            difficulty_checkbox = gr.CheckboxGroup(choices=difficulties, label="Trek Difficulty")
+            season_checkbox     = gr.CheckboxGroup(choices=seasons,      label="Best Season")
+            condition_checkbox  = gr.CheckboxGroup(choices=conditions,   label="Current Condition")
+            with gr.Row():
+                apply_filter_btn = gr.Button("Apply Filters", variant="primary")
+                close_filter_btn = gr.Button("Close")
+
+        gr.Markdown("---")
+
+        with gr.Column(visible=True) as welcome_message:
+            gr.Markdown("## 👋 Welcome to Fort Recommender!\n\nPlease select a district to view fort recommendations.")
+
+        with gr.Column(visible=False) as fort_cards_section:
+
+            # Cards — rows of 3
+            card_data = []
+            for row in range(2):
+                with gr.Row():
+                    for col in range(3):
+                        with gr.Column() as container:
+                            img  = gr.Image(label="Fort Image", height=200, interactive=False, type="filepath")
+                            name = gr.Textbox(value="", interactive=False, show_label=False)
+                            desc = gr.Textbox(value="", interactive=False, lines=5, show_label=False)
+                            fid  = gr.Number(visible=False, value=None)
+                            btn  = gr.Button("View Details", variant="primary", size="sm")
+                        card_data.append((container, img, name, desc, fid, btn))
+
+            # Unpack for event wiring
+            (card1_container, card1_image, card1_name, card1_desc, card1_id, card1_btn,
+             card2_container, card2_image, card2_name, card2_desc, card2_id, card2_btn,
+             card3_container, card3_image, card3_name, card3_desc, card3_id, card3_btn,
+             card4_container, card4_image, card4_name, card4_desc, card4_id, card4_btn,
+             card5_container, card5_image, card5_name, card5_desc, card5_id, card5_btn,
+             card6_container, card6_image, card6_name, card6_desc, card6_id, card6_btn) = [
+                item for card in card_data for item in card
+            ]
+
+            with gr.Row():
+                prev_btn  = gr.Button("◀ Previous", size="sm")
+                page_info = gr.Textbox(value="Page 1", interactive=False, show_label=False)
+                next_btn  = gr.Button("Next ▶", size="sm")
+
+    
