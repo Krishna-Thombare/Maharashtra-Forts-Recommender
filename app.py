@@ -100,4 +100,21 @@ with gr.Blocks(title="Fort Recommender") as app:
         detail_image = gr.Image(label="Fort Image", height=400, interactive=False, type="filepath")
         detail_text  = gr.Textbox(value="", interactive=False, lines=30, show_label=False)
 
+    # Filter outputs list
+    filter_outputs = [
+        card1_container, card1_image, card1_name, card1_desc, card1_id,
+        card2_container, card2_image, card2_name, card2_desc, card2_id,
+        card3_container, card3_image, card3_name, card3_desc, card3_id,
+        card4_container, card4_image, card4_name, card4_desc, card4_id,
+        card5_container, card5_image, card5_name, card5_desc, card5_id,
+        card6_container, card6_image, card6_name, card6_desc, card6_id,
+        page_info, current_page, prev_btn, next_btn,
+        welcome_message, fort_cards_section
+    ]
+
+    filter_inputs = [
+        district_dropdown, type_checkbox, difficulty_checkbox,
+        season_checkbox, condition_checkbox, current_page
+    ]
+
     
