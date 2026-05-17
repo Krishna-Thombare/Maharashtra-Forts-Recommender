@@ -93,4 +93,11 @@ with gr.Blocks(title="Fort Recommender") as app:
                 page_info = gr.Textbox(value="Page 1", interactive=False, show_label=False)
                 next_btn  = gr.Button("Next ▶", size="sm")
 
+    # Detail page
+    with gr.Column(visible=False) as detail_page:
+        gr.Markdown("# 🏰 Fort Details")
+        back_btn     = gr.Button("◀ Back to List", variant="secondary")
+        detail_image = gr.Image(label="Fort Image", height=400, interactive=False, type="filepath")
+        detail_text  = gr.Textbox(value="", interactive=False, lines=30, show_label=False)
+
     
