@@ -5,7 +5,6 @@ from filters import districts, fort_types, difficulties, seasons, conditions, df
 from helper_functions import get_fort_image, format_value
 
 # Detail page logic
-
 def show_detail_page(fort_id):
     if fort_id is None or pd.isna(fort_id):
         return gr.update(visible=True), gr.update(visible=False), None, ""
@@ -31,3 +30,21 @@ def show_detail_page(fort_id):
         details
     )
 
+# UI
+with gr.Blocks(title="Fort Recommender") as app:
+
+    current_page = gr.State(value=1)
+
+    # Main page
+    with gr.Column(visible=True) as main_page:
+
+        gr.Markdown("# 🏰 Fort Recommender")
+
+        with gr.Row():
+            district_dropdown = gr.Dropdown(
+                choices=["Select District", "All Districts"] + districts,
+                value="Select District", label="District", scale=3
+            )
+            filter_btn = gr.Button("🔍 Filters", scale=1)
+
+        
