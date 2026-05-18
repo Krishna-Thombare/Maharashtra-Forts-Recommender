@@ -126,6 +126,7 @@ def get_fort_description(fort_row: pd.Series) -> str:
     description += f"📏 Elevation: {fort_row['elevation_m']}m\n"
     description += f"🥾 Trek: {fort_row['trek_difficulty']}\n"
     description += f"🌤️ Best Season: {fort_row['best_season']}"
+    
     return description
 
 
