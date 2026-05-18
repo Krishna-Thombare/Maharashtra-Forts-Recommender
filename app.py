@@ -117,4 +117,35 @@ with gr.Blocks(title="Fort Recommender") as app:
         season_checkbox, condition_checkbox, current_page
     ]
 
-    
+    # UI Event Handlers
+    filter_btn.click(fn=lambda: gr.update(visible=True),  outputs=filter_panel)
+    close_filter_btn.click(fn=lambda: gr.update(visible=False), outputs=filter_panel)
+
+    apply_filter_btn.click(
+        fn=apply_filters, inputs=filter_inputs, outputs=filter_outputs
+    ).then(fn=lambda: gr.update(visible=False), outputs=filter_panel)
+
+    district_dropdown.change(fn=apply_filters, inputs=filter_inputs, outputs=filter_outputs)
+
+    prev_btn.click(fn=go_to_previous_page, inputs=current_page, outputs=current_page).then(
+        fn=apply_filters, inputs=filter_inputs, outputs=filter_outputs
+    )
+    next_btn.click(fn=go_to_next_page, inputs=current_page, outputs=current_page).then(
+        fn=apply_filters, inputs=filter_inputs, outputs=filter_outputs
+    )
+
+    detail_outputs = [main_page, detail_page, detail_image, detail_text]
+    for container, img, name, desc, fid, btn in card_data:
+        btn.click(fn=show_detail_page, inputs=fid, outputs=detail_outputs)
+
+    back_btn.click(
+        fn=lambda: (gr.update(visible=True), gr.update(visible=False)),
+        outputs=[main_page, detail_page]
+    )
+
+# Launch
+if __name__ == "__main__":
+    app.launch(theme=gr.themes.Soft(), 
+               share=True,
+               server_name="127.0.0.1", 
+               server_port=7860, show_error=True)
