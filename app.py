@@ -14,14 +14,17 @@ def show_detail_page(fort_id):
         return gr.update(visible=True), gr.update(visible=False), None, "Fort not found"
 
     fort = fort_match.iloc[0]
-    details = f"""Fort Name: {fort['name']}
-                District: {fort['district']}
-                Type: {fort['type']}
-                Elevation: {fort['elevation_m']} meters
-                Current Condition: {fort['current_condition']}
-                Trek Difficulty: {fort['trek_difficulty']}
-                Best Season: {fort['best_season']}
-                Notes: {format_value(fort['notes'], 'No additional information available')}"""
+
+    details = (
+    f"Fort Name: {fort['name']}\n"
+    f"District: {fort['district']}\n"
+    f"Type: {fort['type']}\n"
+    f"Elevation: {fort['elevation_m']} meters\n"
+    f"Current Condition: {fort['current_condition']}\n"
+    f"Trek Difficulty: {fort['trek_difficulty']}\n"
+    f"Best Season: {fort['best_season']}\n"
+    f"Notes: {format_value(fort['notes'], 'No additional information available')}"
+    )
     
     return (
         gr.update(visible=False),
