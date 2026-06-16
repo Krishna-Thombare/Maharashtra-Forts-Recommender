@@ -23,7 +23,7 @@ The system provides details about each recommended fort, making it useful for tr
 5. Result Display:- Recommended forts are displayed along with important details.
 
 ## 🚀 **Live Demo:**
-Will be available soon!
+https://huggingface.co/spaces/Replit17/Maharashtra-Forts-Recommender
 
 ## 📸 **Screenshots:**
 ### 🏠 Image 1
