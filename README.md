@@ -13,7 +13,7 @@ The system provides details about each recommended fort, making it useful for tr
 1. Programming Language:- Python
 2. Data Processing:- pandas, numpy
 3. Data Visualization:- matplotlib, seaborn
-4. Web App UI:- gradio
+4. Web App UI:- Gradio
 
 ## 🏗 **Working:**
 1. Dataset:- Uses dataset from kaggle.
