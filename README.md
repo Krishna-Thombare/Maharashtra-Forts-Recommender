@@ -11,8 +11,8 @@ The system provides details about each recommended fort, making it useful for tr
 
 ## 🛠️ **Tech Stack:**
 1. Programming Language:- Python
-2. Data Processing:- pandas, numpy
-3. Data Visualization:- matplotlib, seaborn
+2. Data Processing:- Pandas, Numpy
+3. Data Visualization:- Matplotlib, seaborn
 4. Web App UI:- Gradio
 
 ## 🏗 **Working:**
