@@ -4,7 +4,7 @@ Users can apply multiple filters such as trek difficulty, district, season, fort
 The system provides details about each recommended fort, making it useful for travelers, trekkers, and history enthusiasts exploring Maharashtra's rich heritage.
 
 ## ✨ **Features:**
-1. District-Wise Recommendations:- Recommends all forts located in a user specified district.
+1. District Wise Recommendations:- Recommends all forts located in a user specified district.
 2. Multi-Filter Options:- Find forts based on trek difficulty, district, season, fort condition and fort type.
 3. Fort Information:- View details such as fort name, image, elevation, location, best season to visit, trek difficulty, and a short fort description.
 4. Interactive UI:- A Gradio-based web dashboard for seamless user experience.
